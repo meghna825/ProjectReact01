@@ -7,15 +7,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meghna825/NamasteReact.git"
+    "url": "git+https://github.com/meghna825/ProjectReact01.git"
   },
   "keywords": [],
   "author": "Meghna Mathur",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/meghna825/NamasteReact/issues"
+    "url": "https://github.com/meghna825/ProjectReact01/issues"
   },
-  "homepage": "https://github.com/meghna825/NamasteReact#readme",
+  "homepage": "https://github.com/meghna825/ProjectReact01#readme",
   "devDependencies": {
     "parcel": "^2.10.3",
     "process": "^0.11.10"
