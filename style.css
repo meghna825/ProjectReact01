@@ -1,0 +1,27 @@
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#companyLogo {
+    width: 50px; /* Adjust the size as needed */
+    height: auto;
+}
+
+#searchBar {
+    flex-grow: 1;
+    margin: 0 20px; /* Add margin for spacing */
+    padding: 12px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px;
+}
+
+#userImage {
+    width: 40px; /* Adjust the size as needed */
+    height: auto;
+    border-radius: 50%; /* Make it circular */
+}
