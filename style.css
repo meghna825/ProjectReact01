@@ -1,18 +1,62 @@
 .header {
-    background-color: #333;
-    color: #fff;
-    padding: 30px;
-    display: flex;
+ 
+    color: black;
+    padding:10px;
+    display: flex;  /* components comes side-by side*/
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-#companyLogo {
+img {
+    max-width: 300%;
+    height: auto;
+  }
+.nav-items > ul{
+    font-size: 24px;
+    display: flex;
+    list-style-type: none;  /* to remove dots in list */
+}
+.nav-items > ul >li{
+    padding: 10px;
+     margin: 10px;
+}
+.logo {
     width: 50px; /* Adjust the size as needed */
     height: auto;
 }
-
-#searchBar {
+.res-card{
+    position: relative;
+    display: block;
+    margin: 5px;
+    padding:5px;
+    width: 250px;
+    border-radius: 16px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 8px);
+    overflow:hidden;
+    word-break: break-word
+    
+}
+.res-card .cuisine-list{
+    align-items: center;
+    margin-top: 2px;
+    gap: 2px
+}
+.res-card:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.res-container{
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.res-logo{
+    width: 100%;
+    object-fit: cover;
+    border-style: none;
+    border-radius: 16px;
+}
+.search {
     flex-grow: 1;
     margin: 0 20px; /* Add margin for spacing */
     padding: 12px; /* Adjust padding as needed */
@@ -24,4 +68,24 @@
     width: 40px; /* Adjust the size as needed */
     height: auto;
     border-radius: 50%; /* Make it circular */
+}
+
+
+.res-body {
+    background: rgb(255, 255, 255);
+    padding: 16px;
+    overflow: hidden;
+}
+.res-body .title{
+    margin: 0px;
+    font-family: "Basis Grotesque Pro";
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: rgba(2, 6, 12, 0.92);
+    overflow: hidden;
+    width: 100%;
+    overflow-wrap: break-word;
+   
 }
