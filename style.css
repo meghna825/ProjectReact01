@@ -89,3 +89,7 @@ img {
     overflow-wrap: break-word;
    
 }
+.filter-btn{
+    margin: 16px;
+    cursor: pointer;
+}

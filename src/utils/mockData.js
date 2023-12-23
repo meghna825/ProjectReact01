@@ -1,8 +1,3 @@
-import React from 'react';
-import  ReactDOM  from 'react-dom/client';
-import  './style.css';
-const companyUrl = 'https://www.logodesign.net/logo-new/hotdog-on-top-of-a-food-truck-8847ld.png?nwm=1&nws=1&industry=food'
-
 const restList = [
     {
         "info": {
@@ -381,64 +376,167 @@ const restList = [
           "link": "https://www.swiggy.com/restaurants/eatfit-desi-meals-burgers-and-more-sector-7-malviya-nagar-jaipur-567280",
           "type": "WEBLINK"
         }
-      }
-]
-const imageLink = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'
-const Header = ()=>{
-    return (
-        <div className='header'>
-            <div className='logo'><img src={companyUrl}/></div>
-            <div className='nav-items'>
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul> 
-            </div>
+      },
+      {
+        "info": {
+          "id": "183356",
+          "name": "Kebabs & Curries Company",
+          "cloudinaryImageId": "p7uoahdsi6kqgmipdkd2",
+          "locality": "Santosh Vihar",
+          "areaName": "Jagatpura",
+          "costForTwo": "₹750 for two",
+          "cuisines": [
+              "Indian",
+              "North Indian",
+              "Mughlai"
+          ],
+          "avgRating": 4.2,
+          "parentId": "6302",
+          "avgRatingString": "4.2",
+          "totalRatingsString": "5K+",
+          "sla": {
+              "deliveryTime": 26,
+              "lastMileTravel": 4.6,
+              "serviceability": "SERVICEABLE",
+              "slaString": "26 mins",
+              "lastMileTravelString": "4.6 km",
+              "iconType": "ICON_TYPE_EMPTY"
+          },
+          "availability": {
+              "nextCloseTime": "2023-12-24 04:00:00",
+              "opened": true
+          },
+          "badges": {
+              "imageBadges": [
+                  {
+                      "imageId": "newg.png",
+                      "description": "Gourmet"
+                  }
+              ]
+          },
+          "isOpen": true,
+          "type": "F",
+          "badgesV2": {
+              "entityBadges": {
+                  "imageBased": {
+                      "badgeObject": [
+                          {
+                              "attributes": {
+                                  "imageId": "newg.png",
+                                  "description": "Gourmet"
+                              }
+                          }
+                      ]
+                  },
+                  "textExtendedBadges": {},
+                  "textBased": {}
+              }
+          },
+          "aggregatedDiscountInfoV3": {
+              "header": "50% OFF",
+              "subHeader": "UPTO ₹100"
+          },
+          "orderabilityCommunication": {
+              "title": {},
+              "subTitle": {},
+              "message": {},
+              "customIcon": {}
+          },
+          "differentiatedUi": {
+              "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+              "differentiatedUiMediaDetails": {
+                  "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                  "lottie": {},
+                  "video": {}
+              }
+          },
+          "reviewsSummary": {},
+          "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {},
+      },
+      {
+        "info": {
+          "id": "49902",
+          "name": "24/7 Restaurant - The Lalit",
+          "cloudinaryImageId": "ebec07c8990ad40cd8f7037ea40c7722",
+          "locality": "Jagatpura",
+          "areaName": "Jagatpura",
+          "costForTwo": "₹900 for two",
+          "cuisines": [
+              "Indian",
+              "Asian",
+              "Chinese",
+              "Italian",
+              "Oriental"
+          ],
+          "avgRating": 3.6,
+          "parentId": "23249",
+          "avgRatingString": "3.6",
+          "totalRatingsString": "50+",
+          "sla": {
+              "deliveryTime": 43,
+              "lastMileTravel": 10.6,
+              "serviceability": "SERVICEABLE",
+              "slaString": "43 mins",
+              "lastMileTravelString": "10.6 km",
+              "iconType": "ICON_TYPE_EMPTY"
+          },
+          "availability": {
+              "nextCloseTime": "2023-12-23 23:00:00",
+              "opened": true
+          },
+          "badges": {
+              "imageBadges": [
+                  {
+                      "imageId": "newg.png",
+                      "description": "Gourmet"
+                  }
+              ]
+          },
+          "isOpen": true,
+          "aggregatedDiscountInfoV2": {},
+          "type": "F",
+          "badgesV2": {
+              "entityBadges": {
+                  "textExtendedBadges": {},
+                  "textBased": {},
+                  "imageBased": {
+                      "badgeObject": [
+                          {
+                              "attributes": {
+                                  "imageId": "newg.png",
+                                  "description": "Gourmet"
+                              }
+                          }
+                      ]
+                  }
+              }
+          },
+          "orderabilityCommunication": {
+              "title": {},
+              "subTitle": {},
+              "message": {},
+              "customIcon": {}
+          },
+          "differentiatedUi": {
+              "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+              "differentiatedUiMediaDetails": {
+                  "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                  "lottie": {},
+                  "video": {}
+              }
+          },
+          "reviewsSummary": {},
+          "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          "restaurantOfferPresentationInfo": {}
+      },
+      "analytics": {},
+    
+  }
 
-        </div>
-    )
-}
-const RestuarantCard = (props)=>{
-    const {resData} = props
-    const { name,costForTwo,avgRating,cuisines,cloudinaryImageId} = resData?.info
-    return(
-        <div className='res-card'>
-            <img className='res-logo'src = {imageLink+cloudinaryImageId} alt ='res-logo'/>
-            <h3>{name}</h3>
-            <span>{avgRating} stars</span>
-            <br/>
-            <span>{costForTwo}</span>
-            <br/>
-            <br/>
-            <p className='cuisine-list'>{cuisines.join(',')}</p>
-            
-        </div>
-    )
-}
-const Body = ()=>{
-    return(
-        <div className='body'>
-            <div className='search'>Search</div>
-                <div className='res-body'>
-                        <h2 className='title'>What's on your mind?</h2>
-                    <div className='res-container'>
-                        {restList.map(restuarant=><RestuarantCard key = {restuarant.id} resData = {restuarant}/>)}
-                       
-                    </div>
-                </div>
-            </div>
-    )
-}
-const AppLayout =()=>{
-    return(
-        <div className='app'>
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
-//root.render(<Title/>)
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<AppLayout/>)
+      
+]
+
+export default restList;
