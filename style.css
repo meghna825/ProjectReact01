@@ -58,7 +58,7 @@ img {
 }
 .search {
     flex-grow: 1;
-    margin: 0 20px; /* Add margin for spacing */
+    margin: 10 20px; /* Add margin for spacing */
     padding: 12px; /* Adjust padding as needed */
     border: none;
     border-radius: 5px;
@@ -73,7 +73,6 @@ img {
 
 .res-body {
     background: rgb(255, 255, 255);
-    padding: 16px;
     overflow: hidden;
 }
 .res-body .title{
@@ -89,7 +88,32 @@ img {
     overflow-wrap: break-word;
    
 }
+.filter{
+    display: flex;
+}
 .filter-btn{
     margin: 16px;
     cursor: pointer;
 }
+.shimmer-card{
+    height: 350px;
+    width:250px;
+    background-color: lightgrey;
+    margin: 10px;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.login{
+    cursor: pointer;
+    padding: 0px 20px;
+    color: rgb(104, 85, 224);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(104, 85, 224, 1);
+}
+.login:hover {
+    color: white;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+  }
