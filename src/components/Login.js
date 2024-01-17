@@ -8,6 +8,7 @@ const Login = ()=>{
     const [formDetails,setFormDetails] =useState({})
     const navigate = useNavigate()
     useEffect(() => {
+        console.log(useState)
         console.log('Form details:', formDetails);
       }, [formDetails]);
      

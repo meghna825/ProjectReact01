@@ -163,3 +163,7 @@ img {
     background-color: #ccc;
     cursor: not-allowed;
   }
+  .user-card{
+    padding: 10px;
+    border: 1px solid black;
+  }

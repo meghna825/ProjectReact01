@@ -4,10 +4,13 @@ import { useState,useEffect } from 'react';
 import Shimmer from './ShimmerUI';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Link} from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 const Body = ()=>{
     const [listOfRestaurants,setlistOfRestaurant] = useState([])
     const [allistOfRestaurants,setallistOfRestaurant] = useState([])
     const [searchInput,setsearchInput] = useState('')
+    const onlineStatus = useOnlineStatus()
     let allList = []
     // Normal JS
     let listOfRestaurantJS = [
@@ -72,16 +75,12 @@ const Body = ()=>{
     const fetchData = async ()=>{
         try{
             let  list = []
-        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&collection=99942&tags=&sortBy=&filters=&type=rcv2&offset=0&page_type=null')
+        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
         const json = await data?.json()
         if(json?.data?.cards.length>0){
             const allresturant = json.data.cards
-             allresturant.map((item)=>{
-                if(item?.card?.card['@type'] == 'type.googleapis.com/swiggy.presentation.food.v2.Restaurant'){
-                    list.push(item.card.card)
-
-                }
-            })
+          //  console.log(allresturant,"dd")
+          list =json.data.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         }
         setallistOfRestaurant(list)
         setlistOfRestaurant(list)
@@ -96,7 +95,13 @@ const Body = ()=>{
         
        
     }
-
+    if(onlineStatus == false){
+        return(
+            <h1>
+                You're currently offline,please check your internet connection
+            </h1>
+        )
+    }
     return allistOfRestaurants.length == 0?
     <>
         <Shimmer/>
@@ -122,7 +127,11 @@ const Body = ()=>{
                 <div className='res-body'>
                         <h2 className='title'>What's on your mind?</h2>
                     <div className='res-container'>
-                        {listOfRestaurants.map(restuarant=><RestuarantCard key = {restuarant.info.id} resData = {restuarant}/>)}
+                        {listOfRestaurants.map(restuarant=>
+                        <Link to ={'/restaurant/'+restuarant.info.id}>
+                            <RestuarantCard key = {restuarant.info.id} resData = {restuarant}/>
+                        </Link>
+                        )}
                        
                     </div>
                 </div>
