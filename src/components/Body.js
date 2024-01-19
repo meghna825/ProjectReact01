@@ -1,11 +1,12 @@
 import  '../../style.css';
-import RestuarantCard from './RestaurantCard';
-import { useState,useEffect } from 'react';
+import RestuarantCard,{withHighRatingLabel} from './RestaurantCard';
+import { useState,useEffect ,useContext} from 'react';
 import Shimmer from './ShimmerUI';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Link} from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import UserContext from '../utils/UserContext';
 const Body = ()=>{
     const [listOfRestaurants,setlistOfRestaurant] = useState([])
     const [allistOfRestaurants,setallistOfRestaurant] = useState([])
@@ -51,6 +52,7 @@ const Body = ()=>{
                 "avgRating": 3.2}
         }
     ]
+    const {loggedInUser,setUserName} = useContext(UserContext)
     const filterSearch = (e,type = null)=>{
         let filteredList = allistOfRestaurants
         if(type == 'clear'){
@@ -69,6 +71,7 @@ const Body = ()=>{
         }
         
     }
+   const RestuarantWithHighRating = withHighRatingLabel(RestuarantCard)
     useEffect(()=>{
         fetchData()
     },[])
@@ -95,6 +98,7 @@ const Body = ()=>{
         
        
     }
+    
     if(onlineStatus == false){
         return(
             <h1>
@@ -115,21 +119,34 @@ const Body = ()=>{
                     <button id="search-button" onClick= {(e)=>filterSearch(e)} style={{"marginRight":"10px"}}>Search</button>
                     <button id="clear-button" onClick= {(e)=>filterSearch(e,'clear')}>Clear</button>
             </div>
-                <button className='filter-btn' onClick={()=>{
-                   const filteredList =  listOfRestaurants.filter((rest)=>
-                         rest.info.avgRating>4.00
-                    )
-                    setlistOfRestaurant(filteredList)
-                   
-                }}>Top Rated Button</button>
+            <div className="search m-4 p-4 flex items-center">
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter(
+                (res) => res.data.avgRating > 4
+              );
+              setlistOfRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+          <div className= 'search m-4 p-4 flex items-center'>
+            <input  className="border border-black p-2" type ='text' value = {loggedInUser} onChange={(e)=>setUserName(e.target.value)}/>
+
+          </div>
+        </div>
                 
             </div>
                 <div className='res-body'>
                         <h2 className='title'>What's on your mind?</h2>
-                    <div className='res-container'>
+                      <div className='flex flex-wrap'>
                         {listOfRestaurants.map(restuarant=>
+                     
                         <Link to ={'/restaurant/'+restuarant.info.id}>
-                            <RestuarantCard key = {restuarant.info.id} resData = {restuarant}/>
+                            {/* If restuarant is avgRating is higher than 4.5 we will create HOC to enhance it */}
+                            {restuarant.info?.avgRating>=4.5?<RestuarantWithHighRating key = {restuarant.info.id} resData = {restuarant}/>: <RestuarantCard key = {restuarant.info.id} resData = {restuarant}/>}
+                           
                         </Link>
                         )}
                        
